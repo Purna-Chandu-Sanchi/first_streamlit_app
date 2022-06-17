@@ -38,15 +38,15 @@ try:
 except URLError as e:
   streamlit.error()
 
-streamlit.stop()
+# streamlit.stop()
 
 #connecting to SnowFlake:
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
-my_data_row = my_cur.fetchone()
-streamlit.text("Hello from Snowflake:")
-streamlit.text(my_data_row)
+# my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+# my_cur = my_cnx.cursor()
+# my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+# my_data_row = my_cur.fetchone()
+# streamlit.text("Hello from Snowflake:")
+# streamlit.text(my_data_row)
 
 #querying on SnowFlake data:
 # my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
