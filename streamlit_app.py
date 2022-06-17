@@ -2,6 +2,7 @@ import streamlit
 import pandas as pd
 import requests
 import snowflake.connector
+from urllib.error import URLError
 
 streamlit.title("It's my First ever Streamlit application")
 streamlit.header("My SnowFlake Course")
@@ -27,6 +28,8 @@ fruityvice_response=requests.get("https://fruityvice.com/api/fruit/"+fruit_choic
 # streamlit.text(fruityvice_response.json())
 fruityvice_normalised=pd.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalised)
+
+streamlit.stop()
 
 #connecting to SnowFlake:
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
